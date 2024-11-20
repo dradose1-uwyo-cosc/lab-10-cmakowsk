@@ -1,8 +1,8 @@
-# Your Name Here
+# Colter Makowski
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10/24/24
+# Lab 10
+# Lab Section: 15
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -24,6 +24,19 @@ def get_hash(to_hash):
 # For this assignment, you will be writing a program to "crack" a password. You will need to open the file `hash` as this is the password you are trying to "crack."
 
 # To begin, you will need to open the 'rockyou.txt' file:
+from pathlib import Path
+path = Path('rockyou.txt')
+contents = path.read_text()
+contents_list = contents.split()
+try:
+    pat = Path('hash').read_text()
+    for line in contents_list:
+        print("variable")
+        if get_hash(line) == pat:
+            print(f"The correct password is {line}")
+            break
+except:
+    print("An unexpected error orcurred")
 # - This file contains a list of compromised passwords from the rockyou dump.
 # - This is an abridged version, as the full version is quite large.
 # - The file contains the plaintext version of the passwords. You will need to hash them to check against the password hash you are trying to crack.
